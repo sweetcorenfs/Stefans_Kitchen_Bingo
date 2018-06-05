@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<title>Stefans Kitchen Bingo</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<!-- Login-Seite -->
+	<div class="login page">
+		<h3 class="title">Wie ist dein Name?</h3>
+		<input class="usernameInput" type="text" maxlength="14" />
+	</div>
+
+	<!-- Chat-Seite (initial ausgeblendet) -->
+	<div class="chat page">
+		<div id="header"></div>
+		<div id="left">
+			<div id="video" class="responsive-video3">
+				<iframe src="https://player.twitch.tv/?channel=Stefans_Kitchen&html5=1"></iframe>
+			</div>
+			<!--
+			<div id="game">
+				<div id="title">Stefans Kitchen Bingo</div>
+				<div id="cont"></div>
+			</div>
+			-->
+			<div id="container">
+				
+				<div id="win"></div>
+				<div id="board"></div>
+				<!--<div id="footer"></div>-->
+			</div>
+		</div>
+		<div id="right">
+			<iframe id="twitchchat" src="http://www.twitch.tv/embed/stefans_kitchen/chat?darkpopout"></iframe>
+			<ul id="chatmessages" class="messages"></ul>
+			<div id="inputs">
+				<input id="chatinput" class="inputMessage" placeholder="Type here..."/>
+				<!--
+				<button id="sender" onclick="sendbuttonclicked()">Test</button>
+				-->
+			</div>
+		</div>
+	</div>
+
+	<!-- Programmcode auf der Client-Seite -->
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/main.js"></script>
+	<script src="/jquery.tappable.js" type="text/javascript"></script>
+	<script src="/data.js"></script>
+	<script src="/mainbingo.js"></script>
+	<script>
+		/*
+		for(x=0;x<25;x++){
+			$('#cont').append('<div id="field_' + x + '" class="field">Blank</div>')
+		}
+		*/
+	</script>
+</body>
+</html>
