@@ -33,13 +33,9 @@ app.get('/', function(req, res) {
 		
 // === Ab hier folgt der Code für den Chat-Server
 		
-// Hier sagen wir Socket.io, dass wir informiert werden wollen,
-// wenn sich etwas bei den Verbindungen ("connections") zu 
-// den Browsern tut. 
+// Hier sagen wir Socket.io, dass wir informiert werden wollen, wenn sich etwas bei den Verbindungen ("connections") zu den Browsern tut. 
 io.on('connection', function (socket) {
-	// Die variable "socket" repräsentiert die aktuelle Web Sockets
-	// Verbindung zu jeweiligen Browser client.
-	// Kennzeichen, ob der Benutzer sich angemeldet hat 
+	// Die variable "socket" repräsentiert die aktuelle Web Sockets Verbindung zu jeweiligen Browser client. Kennzeichen, ob der Benutzer sich angemeldet hat 
 	var addedUser = false;
 	// Funktion, die darauf reagiert, wenn sich der Benutzer anmeldet
 	socket.on('add user', function (username) {

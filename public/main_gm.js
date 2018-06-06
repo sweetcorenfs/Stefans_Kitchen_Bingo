@@ -10,6 +10,13 @@
 		//$inputMessage.val().trim();
 		if (message && connected) {
 			socket.emit('buttonclick', message);
+			if($(status).data('value') == 0){
+				message = " \"" + text + "\" ";
+			}else{
+				message = " \"" + text + "\" ist nicht richtig";
+			}
+			addChatMessage({ username: username, message: message });
+			socket.emit('new message', message);
 		}
 	}
 
@@ -66,7 +73,7 @@
 	// Benutzername wird gesetzt
 	function setUsername() {
 		// Benutzername aus Eingabefeld holen (ohne Leerzeichen am Anfang oder Ende).
-		username = $usernameInput.val().trim();
+		username = "GM - " + $usernameInput.val().trim();
 		// Prüfen, ob der Benutzername nicht leer ist
 		if (username) {
 			// Loginmaske ausblenden und Chat-Seite einblenden
@@ -103,8 +110,10 @@
 		
 	// Chat-Nachricht zum Chat-Protokoll anfügen
 	function addChatMessage(data) {
-		var $usernameDiv = $('<span class="username"/>').text(data.username + ': ');
-		var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
+		console.log(data)
+		console.log(data.username)
+		var $usernameDiv = $('<span class="username"/>').html(data.username + ': ');
+		var $messageBodyDiv = $('<span class="messageBody">').html(data.message);
 		var $messageDiv = $('<li class="message"/>').append('[' + getTimes() + ']', $usernameDiv, $messageBodyDiv);
 		$messages.append($messageDiv);
 		window.scrollTo(0,$($messages).scrollHeight);
